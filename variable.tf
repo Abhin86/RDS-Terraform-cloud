@@ -1,3 +1,9 @@
+variable "aws_region" {
+  description = "Whether to ignore changes lifecycle to global secondary indices, useful for provisioned tables with scaling"
+  type        = string
+  default     = "us-east-1"
+}
+
 variable "identifier" {
   description = "The name of the RDS instance"
   type        = string

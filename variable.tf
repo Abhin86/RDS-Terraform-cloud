@@ -25,7 +25,7 @@ variable "custom_iam_instance_profile" {
 variable "allocated_storage" {
   description = "The allocated storage in gigabytes"
   type        = number
-  default     = null
+  default     = 5
 }
 
 variable "storage_type" {
@@ -157,13 +157,13 @@ variable "instance_class" {
 variable "db_name" {
   description = "The DB name to create. If omitted, no database is created initially"
   type        = string
-  default     = null
+  default     = "demodb"
 }
 
 variable "username" {
   description = "Username for the master DB user"
   type        = string
-  default     = null
+  default     = "user"
 }
 
 variable "password" {
@@ -194,7 +194,7 @@ variable "master_user_secret_kms_key_id" {
 variable "port" {
   description = "The port on which the DB accepts connections"
   type        = string
-  default     = null
+  default     = "3306"
 }
 
 variable "vpc_security_group_ids" {
@@ -418,7 +418,7 @@ variable "parameter_group_description" {
 variable "family" {
   description = "The family of the DB parameter group"
   type        = string
-  default     = null
+  default     = "mysql5.7"
 }
 
 variable "parameters" {

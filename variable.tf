@@ -1,7 +1,7 @@
 variable "identifier" {
   description = "The name of the RDS instance"
   type        = string
-  default     = demo
+  default     = "demo"
 }
 
 variable "instance_use_identifier_prefix" {

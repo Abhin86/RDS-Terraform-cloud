@@ -115,13 +115,13 @@ variable "domain_ou" {
 variable "engine" {
   description = "The database engine to use"
   type        = string
-  default     = null
+  default     = "mysql"
 }
 
 variable "engine_version" {
   description = "The engine version to use"
   type        = string
-  default     = null
+  default     = "5.7"
 }
 
 variable "skip_final_snapshot" {
@@ -151,7 +151,7 @@ variable "final_snapshot_identifier_prefix" {
 variable "instance_class" {
   description = "The instance type of the RDS instance"
   type        = string
-  default     = null
+  default     = "db.t3a.large"
 }
 
 variable "db_name" {

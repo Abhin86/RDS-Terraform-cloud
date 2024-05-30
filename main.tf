@@ -1,5 +1,5 @@
 module "db" {
-  source = "./RDS"
+  source = "terraform-aws-modules/rds/aws"
 
   identifier = "demodb"
 

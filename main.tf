@@ -38,23 +38,23 @@ module "db_parameter_group" {
   tags = merge(var.tags, var.db_parameter_group_tags)
 }
 
-# module "db_option_group" {
-#   source = "./modules/db_option_group"
+module "db_option_group" {
+  source = "./modules/db_option_group"
 
-#   create = local.create_db_option_group
+  create = local.create_db_option_group
 
-#   name                     = coalesce(var.option_group_name, var.identifier)
-#   use_name_prefix          = var.option_group_use_name_prefix
-#   option_group_description = var.option_group_description
-#   engine_name              = var.engine
-#   major_engine_version     = var.major_engine_version
+  name                     = coalesce(var.option_group_name, var.identifier)
+  use_name_prefix          = var.option_group_use_name_prefix
+  option_group_description = var.option_group_description
+  engine_name              = var.engine
+  major_engine_version     = var.major_engine_version
 
-#   options = var.options
+  options = var.options
 
-#   timeouts = var.option_group_timeouts
+  timeouts = var.option_group_timeouts
 
-#   tags = merge(var.tags, var.db_option_group_tags)
-# }
+  tags = merge(var.tags, var.db_option_group_tags)
+}
 
 module "db_instance" {
   source = "./modules/db_instance"
@@ -156,12 +156,12 @@ module "db_instance" {
   tags             = var.tags
 }
 
-# module "db_instance_role_association" {
-#   source = "./modules/db_instance_role_association"
+module "db_instance_role_association" {
+  source = "./modules/db_instance_role_association"
 
-#   for_each = { for k, v in var.db_instance_role_associations : k => v if var.create_db_instance }
+  for_each = { for k, v in var.db_instance_role_associations : k => v if var.create_db_instance }
 
-#   feature_name           = each.key
-#   role_arn               = each.value
-#   db_instance_identifier = module.db_instance.db_instance_identifier
-# }
+  feature_name           = each.key
+  role_arn               = each.value
+  db_instance_identifier = module.db_instance.db_instance_identifier
+}

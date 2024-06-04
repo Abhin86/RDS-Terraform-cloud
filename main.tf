@@ -7,6 +7,18 @@ terraform {
   }
 }
 
+variable "AWS_SECRET_KEY" {
+  description = "The AWS secret key"
+  type        = string
+  sensitive   = true
+}
+
+variable "AWS_ACCESS_KEY" {
+  description = "The AWS Access key"
+  type        = string
+  sensitive   = true
+}
+
 # Define the AWS provider
 provider "aws" {
   region = "us-east-1"

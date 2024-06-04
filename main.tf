@@ -80,7 +80,7 @@ module "db" {
   copy_tags_to_snapshot   = true
 
   # Ensure the database is not publicly accessible
-  publicly_accessible = false
+  #publicly_accessible = false
 
   parameters = [
     {

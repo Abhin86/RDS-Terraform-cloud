@@ -69,7 +69,7 @@ module "db" {
   major_engine_version = "5.7"
 
   # Database Deletion Protection
-  deletion_protection = true
+  #deletion_protection = true
 
   # Enable storage encryption
   #storage_encrypted = true

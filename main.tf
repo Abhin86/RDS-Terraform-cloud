@@ -73,7 +73,7 @@ module "db" {
 
   # Enable storage encryption
   storage_encrypted = true
-  kms_key_id        = "your-kms-key-id" # Ensure to replace this with your actual KMS key ID
+  #kms_key_id        = "your-kms-key-id" # Ensure to replace this with your actual KMS key ID
 
   # Backup settings
   backup_retention_period = 7 # Retain backups for 7 days

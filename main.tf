@@ -27,7 +27,7 @@ provider "aws" {
 }
 
 module "db" {
- source = "terraform-aws-modules/rds/aws"
+  source = "terraform-aws-modules/rds/aws"
 
   identifier = "demodb"
 
@@ -38,6 +38,7 @@ module "db" {
 
   db_name  = "demodb"
   username = "user"
+  password = "your-password" # Ensure to use a secure way to manage passwords, such as AWS Secrets Manager
   port     = "3306"
 
   iam_database_authentication_enabled = true
@@ -47,8 +48,7 @@ module "db" {
   maintenance_window = "Mon:00:00-Mon:03:00"
   backup_window      = "03:00-06:00"
 
-  # Enhanced Monitoring - see example for details on how to create the role
-  # by yourself, in case you don't want to create it automatically
+  # Enhanced Monitoring
   monitoring_interval    = "30"
   monitoring_role_name   = "MyRDSMonitoringRole"
   create_monitoring_role = true
@@ -70,6 +70,17 @@ module "db" {
 
   # Database Deletion Protection
   deletion_protection = true
+
+  # Enable storage encryption
+  storage_encrypted = true
+  kms_key_id        = "your-kms-key-id" # Ensure to replace this with your actual KMS key ID
+
+  # Backup settings
+  backup_retention_period = 7 # Retain backups for 7 days
+  copy_tags_to_snapshot   = true
+
+  # Ensure the database is not publicly accessible
+  publicly_accessible = false
 
   parameters = [
     {
@@ -99,4 +110,3 @@ module "db" {
     },
   ]
 }
-

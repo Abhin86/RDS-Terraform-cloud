@@ -72,7 +72,7 @@ module "db" {
   deletion_protection = true
 
   # Enable storage encryption
- # storage_encrypted = true
+  storage_encrypted = true
  # kms_key_id        = "your-kms-key-id" # Ensure to replace this with your actual KMS key ID
 
   # Backup settings

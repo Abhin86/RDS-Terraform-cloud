@@ -76,7 +76,7 @@ module "db" {
   #kms_key_id        = "your-kms-key-id" # Ensure to replace this with your actual KMS key ID
 
   # Backup settings
-  #backup_retention_period = 7 # Retain backups for 7 days
+  backup_retention_period = 7 # Retain backups for 7 days
   #copy_tags_to_snapshot   = true
 
   # Ensure the database is not publicly accessible

@@ -33,7 +33,7 @@ module "db" {
 
   engine            = "mysql"
   engine_version    = "5.7"
-  instance_class    = "db.t2.large"
+  instance_class    = "db.t3a.large"
   allocated_storage = 5
 
   db_name  = "demodb"
